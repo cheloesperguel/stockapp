@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!--
+Licensee: chelo(Universidad de La Frontera)
+License Type: Academic
+-->
+<hibernate-mapping>
+  <class lazy="false" name="modelo.Proovedor" table="Proovedor">
+    <id column="id" name="id" type="integer" unsaved-value="0">
+      <generator class="identity">
+			</generator>
+    </id>
+    <property column="nombre" lazy="false" length="100" name="nombre" not-null="true" type="string"/>
+    <property column="rut" lazy="false" length="10" name="rut" not-null="true" type="string" unique="true"/>
+    <property column="fono" lazy="false" length="10" name="fono" not-null="false" type="string"/>
+    <set cascade="save-update,lock" inverse="true" lazy="true" name="ORM_Articulo">
+      <key column="proovedor_id" not-null="true"/>
+      <one-to-many class="modelo.Articulo"/>
+    </set>
+  </class>
+</hibernate-mapping>

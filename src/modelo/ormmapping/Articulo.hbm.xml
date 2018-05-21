@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!--
+Licensee: chelo(Universidad de La Frontera)
+License Type: Academic
+-->
+<hibernate-mapping>
+  <class lazy="false" name="modelo.Articulo" table="Articulo">
+    <id column="id" name="id" type="integer" unsaved-value="0">
+      <generator class="identity">
+			</generator>
+    </id>
+    <property column="codigo" lazy="false" length="20" name="codigo" not-null="true" type="string" unique="true"/>
+    <property column="nombre" lazy="false" length="30" name="nombre" not-null="true" type="string"/>
+    <property column="precio_costo" lazy="false" length="10" name="precio_costo" not-null="true" type="integer"/>
+    <property column="precio_venta" lazy="false" length="10" name="precio_venta" not-null="true" type="integer"/>
+    <property column="stock" lazy="false" length="10" name="stock" not-null="true" type="integer"/>
+    <many-to-one access="field" cascade="lock" class="modelo.Proovedor" column="proovedor_id" lazy="proxy" name="proovedor" not-null="true">
+		</many-to-one>
+    <set cascade="save-update,lock" inverse="true" lazy="true" name="ORM_ItemFactura">
+      <key column="articulo_id" not-null="true"/>
+      <one-to-many class="modelo.ItemFactura"/>
+    </set>
+  </class>
+</hibernate-mapping>
