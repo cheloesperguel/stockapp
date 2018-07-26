@@ -22,7 +22,9 @@ public class CreateStockappData {
 		try {
 			Cliente cliente = ClienteDAO.createCliente();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : factura, rut, nombre
-			ClienteDAO.save(cliente);
+			
+                        
+                        ClienteDAO.save(cliente);
 			Articulo articulo = ArticuloDAO.createArticulo();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : itemFactura, proovedor, stock, precio_venta, precio_costo, nombre, codigo
 			ArticuloDAO.save(articulo);
