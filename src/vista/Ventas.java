@@ -5,7 +5,7 @@
  */
 package vista;
 
-import Controladores.botonesVentaControler;
+import controlador.ListaBusquedaController;
 import javax.swing.JLabel;
 import modelo.Articulo;
 
@@ -86,19 +86,6 @@ public class Ventas extends javax.swing.JFrame {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
-        });
-        busquedaLT.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                busquedaLTFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                busquedaLTFocusLost(evt);
-            }
-        });
-        busquedaLT.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                busquedaLTMouseClicked(evt);
-            }
         });
         jScrollPane1.setViewportView(busquedaLT);
 
@@ -345,7 +332,7 @@ public class Ventas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void agregarControladores() {
-        busquedaLT.addMouseListener(new botonesVentaControler(busquedaLT, this));
+        busquedaLT.addMouseListener(new ListaBusquedaController(busquedaLT, this));
 
     }
 
@@ -372,12 +359,6 @@ public class Ventas extends javax.swing.JFrame {
     public JLabel getNumeroLB() {
         return numeroLB;
     }
-    
-    
-    
-    
-   
-           
 
     private void buscarBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBTActionPerformed
         // TODO add your handling code here:
@@ -396,18 +377,6 @@ public class Ventas extends javax.swing.JFrame {
     private void busquedaTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_busquedaTFActionPerformed
-
-    private void busquedaLTFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_busquedaLTFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_busquedaLTFocusGained
-
-    private void busquedaLTFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_busquedaLTFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_busquedaLTFocusLost
-
-    private void busquedaLTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_busquedaLTMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_busquedaLTMouseClicked
 
     public void añadirRegistro(String s) {
         añadidoTB.getModel().setValueAt(s, 0, 2);
